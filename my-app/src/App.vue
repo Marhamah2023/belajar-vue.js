@@ -3,8 +3,13 @@
   import BasicComponent from './lessons/BasicComponent.vue';
   import Options from './lessons/Options.vue';
   import Composition from './lessons/Composition.vue';
+  import LocalRegistration from './lessons/LocalRegistration.vue';
 
   const count = ref(0) // variabel reaktif untuk hitung klik
+
+  function handleClick() {
+    alert("Tombol diklik!")
+  }
 
 </script>
 
@@ -42,6 +47,37 @@
   <!-- composition -->
   <h3>belajar composition</h3>
   <Composition />
+
+  <hr></hr>
+
+  <!-- Global Registration -->
+   <div>
+    <h3>Contoh Global Registration</h3>
+    <!-- bisa dipakai langsung -->
+    <MyButton label="Klik Aku" variant="success" @click="alert('OK!')" />
+  </div>
+
+  <hr></hr>
+
+  <!-- local registration -->
+    <div class="container mt-3">
+  <h3>Belajar Vue dengan Composition API</h3>
+
+  <p>Jumlah klik: {{ count }}</p>
+
+  <!-- baris tombol -->
+  <div class="d-flex gap-2">
+    <MyButton label="Klik Aku" variant="primary" @click="handleClick" />
+    <button class="btn btn-success" @click="count++">
+      Tambah Count
+    </button>
+  </div>
+</div>
+
+<hr></hr>
+
+<!--  -->
+
 
 </template>
 
